@@ -28,16 +28,12 @@ func (g *game) takeTurn() {
 	g.convertPlayers()
 	g.movePlayers()
 
-	// now that the turn is over
-	// reset the turns
 	for _, p := range g.players {
 		p.turnTaken = false
 	}
 }
 
 func (g *game) convertPlayers() {
-	// if a player is beside a weaker enemy player
-	// force the enemy to become their kind
 	for location, player := range g.players {
 		if player.turnTaken {
 			continue
