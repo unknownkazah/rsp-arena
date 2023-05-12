@@ -45,8 +45,6 @@ func (g *game) convertPlayers() {
 			continue
 		}
 
-		// There is at least one weaker player
-		// so we take our turn.
 		player.turnTaken = true
 
 		for _, weakerPlayer := range weakerPlayers {
@@ -73,11 +71,9 @@ func (g *game) movePlayers() {
 			continue
 		}
 
-		// try horizontal
 		if playerLocation.x != goalLocation.x {
 			secondaryLocation := location{x: goalLocation.x, y: playerLocation.y}
 
-			// can move to goal location
 			existingPlayer := g.players[secondaryLocation]
 			if existingPlayer == nil {
 				delete(g.players, playerLocation)
